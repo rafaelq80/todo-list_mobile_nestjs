@@ -1,3 +1,4 @@
+import { AppController } from './app.controller';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CategoriaModule } from './categoria/categoria.module';
@@ -31,7 +32,7 @@ import { TarefaModule } from './tarefa/tarefa.module';
     CategoriaModule,
     TarefaModule,
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}
