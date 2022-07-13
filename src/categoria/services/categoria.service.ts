@@ -53,7 +53,7 @@ export class CategoriaService {
     async update(categoria: Categoria): Promise<Categoria> {
         let categoriaUpdate = await this.findById(categoria.id);
 
-        if (!categoriaUpdate)
+        if (!categoriaUpdate || !categoria.id)
             throw new HttpException('Categoria não encontrada!', HttpStatus.NOT_FOUND);
 
         return await this.categoriaRepository.save(categoria);
