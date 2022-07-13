@@ -61,7 +61,12 @@ export class TarefaService {
     }
 
     async delete(id: number): Promise<DeleteResult> {
-        let tarefa = await this.findById(id);
+        
+        let buscaTarefa = await this.findById(id);
+
+        if (!buscaTarefa)
+            throw new HttpException('Tarefa não encontrada!', HttpStatus.NOT_FOUND);
+
         return await this.tarefaRepository.delete(id);
     }
 }

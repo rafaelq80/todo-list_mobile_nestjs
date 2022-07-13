@@ -61,7 +61,11 @@ export class CategoriaService {
 
     async delete(id: number): Promise<DeleteResult> {
         
-        let categoria = await this.findById(id);
+        let buscaCategoria = await this.findById(id);
+
+        if (!buscaCategoria)
+            throw new HttpException('Categoria não encontrada!', HttpStatus.NOT_FOUND);
+
         return await this.categoriaRepository.delete(id);
 
     }
