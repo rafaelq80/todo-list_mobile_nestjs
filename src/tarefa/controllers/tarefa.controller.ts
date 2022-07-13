@@ -28,13 +28,13 @@ export class TarefaController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  post(@Body() tarefa: Tarefa): Promise<Tarefa> {
+  create(@Body() tarefa: Tarefa): Promise<Tarefa> {
     return this.tarefaService.create(tarefa);
   }
 
   @Put()
   @HttpCode(HttpStatus.OK)
-  put(@Body() tarefa: Tarefa): Promise<Tarefa> {
+  update(@Body() tarefa: Tarefa): Promise<Tarefa> {
     return this.tarefaService.update(tarefa);
   }
 

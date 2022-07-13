@@ -28,13 +28,13 @@ export class CategoriaController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  post(@Body() categoria: Categoria): Promise<Categoria> {
+  create(@Body() categoria: Categoria): Promise<Categoria> {
     return this.categoriaService.create(categoria);
   }
 
   @Put()
   @HttpCode(HttpStatus.OK)
-  put(@Body() categoria: Categoria): Promise<Categoria> {
+  update(@Body() categoria: Categoria): Promise<Categoria> {
     return this.categoriaService.update(categoria);
   }
 
